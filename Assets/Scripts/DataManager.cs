@@ -9,6 +9,8 @@ public class DataManager : MonoBehaviour
 
     public string playerName;
     public int score;
+    [TextArea]
+    public string highScoresText;
 
     private void Awake()
     {
@@ -28,6 +30,7 @@ public class DataManager : MonoBehaviour
     {
         public string playerName;
         public int score;
+        public string highScoresText;
     }
 
     public void SaveData()
@@ -35,6 +38,7 @@ public class DataManager : MonoBehaviour
         Data data = new Data();
         data.playerName = playerName;
         data.score = score;
+        data.highScoresText = highScoresText;
 
         string json = JsonUtility.ToJson (data);
 
@@ -51,6 +55,8 @@ public class DataManager : MonoBehaviour
 
             playerName = data.playerName;
             score = data.score;
+            highScoresText = data.highScoresText;
         }
     }
+
 }
